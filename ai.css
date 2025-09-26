@@ -171,9 +171,9 @@
 
 @keyframes spin {
   0% {
-    transform: rotate(0deg);
+    transform: scale(0);
   }
   100% {
-    transform: rotate(360deg);
+    transform: scale(1);
   }
 }
