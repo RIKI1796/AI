@@ -35,12 +35,16 @@ function hideTyping() {
 
 function lockInput() {
   isWaiting = true;
+  enter.classList.remove("bi-arrow-up");
+  enter.classList.add("bi-stop-fill");
   enter.classList.add("loading");
   input.disabled = true;
 }
 
 function unlockInput() {
   isWaiting = false;
+  enter.classList.remove("bi-stop-fill");
+  enter.classList.add("bi-arrow-up");
   enter.classList.remove("loading");
   input.disabled = false;
   input.focus();
