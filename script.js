@@ -1,7 +1,6 @@
 const input = document.getElementById("input");
 const enter = document.getElementById("enter");
 const inputmenu = document.getElementById("inputmenu");
-// const menuToggle = document.getElementById("menu");
 const history = document.getElementById("history");
 const close = document.getElementById("close");
 const historymenu = document.getElementById("historymenu");
@@ -10,6 +9,7 @@ const chatBox = document.getElementById("chatBox");
 const serverUrl = "https://1c2d7caf9621.ngrok-free.app";
 
 let isWaiting = false;
+let controller = null;
 
 function addBubble(text, sender) {
   const div = document.createElement("div");
@@ -37,7 +37,6 @@ function lockInput() {
   isWaiting = true;
   enter.classList.remove("bi-arrow-up");
   enter.classList.add("bi-stop-fill");
-  enter.classList.add("loading");
   input.disabled = true;
 }
 
@@ -45,7 +44,6 @@ function unlockInput() {
   isWaiting = false;
   enter.classList.remove("bi-stop-fill");
   enter.classList.add("bi-arrow-up");
-  enter.classList.remove("loading");
   input.disabled = false;
   input.focus();
 }
@@ -65,11 +63,15 @@ async function sendMessage(message) {
   showTyping();
   lockInput();
 
+  controller = new AbortController();
+  const signal = controller.signal;
+
   try {
     const res = await fetch(`${serverUrl}/chat`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ text: message }),
+      signal,
     });
     const data = await res.json();
     hideTyping();
@@ -85,8 +87,12 @@ async function sendMessage(message) {
     }
   } catch (err) {
     hideTyping();
-    console.error("Fetch error:", err);
-    addBubble("⚠️ Gagal koneksi ke server Python", "other");
+    if (err.name === "AbortError") {
+      addBubble("⏹️ Pesan dibatalkan", "other");
+    } else {
+      console.error("Fetch error:", err);
+      addBubble("⚠️ Gagal koneksi ke server Python", "other");
+    }
   }
 
   unlockInput();
@@ -94,6 +100,12 @@ async function sendMessage(message) {
 
 enter.addEventListener("click", (e) => {
   e.preventDefault();
+  if (isWaiting && controller) {
+    controller.abort();
+    unlockInput();
+    hideTyping();
+    return;
+  }
   const msg = input.value.trim();
   if (msg && !isWaiting) {
     sendMessage(msg);
