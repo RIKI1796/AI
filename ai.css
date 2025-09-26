@@ -1,0 +1,128 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.chatMenu {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.chatMenu .menu {
+  font-size: 30px;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+.chatMenu .teks {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+  font-size: 25px;
+}
+
+.chatbox {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 80px; /* space untuk input tetap di bawah */
+}
+
+.bubble {
+  max-width: 70%;
+  padding: 10px 15px;
+  border-radius: 18px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.bubble.me {
+  align-self: flex-end;
+  background: #4caf50;
+  color: white;
+}
+
+.bubble.other {
+  align-self: flex-start;
+  background: #e5e5ea;
+  color: black;
+}
+
+.chatMenu .inputmenu {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 10px;
+  width: 100%;
+  padding: 0 10px;
+  gap: 10px;
+}
+
+.chatMenu .inputmenu input {
+  flex: 1;
+  height: 50px;
+  border-radius: 25px;
+  background-color: rgb(167, 167, 167);
+  padding-left: 15px;
+  font-size: 16px;
+  color: white;
+  border: none;
+}
+
+.chatMenu .inputmenu input::placeholder {
+  color: white;
+}
+
+.chatMenu .inputmenu .enter {
+  background-color: rgb(216, 214, 214);
+  border-radius: 50%;
+  height: 45px;
+  width: 45px;
+  font-size: 20px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.historymenu {
+  display: flex;
+  top: 0;
+  position: fixed;
+  height: 100vh;
+  transform: translateX(-500px);
+}
+
+.history {
+  background-color: gray;
+  height: 100vh;
+  width: 100%;
+  transform: translateX(-500px);
+  transition: 1s;
+}
+
+.historymenu .close {
+  background-color: rgba(179, 179, 179, 0.644);
+  height: 100%;
+  width: 50%;
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.history .search {
+  display: flex;
+  gap: 10px;
+  text-align: center;
+  padding: 10px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+}

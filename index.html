@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=2, user-scalable=no"
+    />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src * data: blob: 'unsafe-inline' 'unsafe-eval' http://* https://*;"
+    />
+    <link rel="stylesheet" href="ai.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+    <title>SkaFun AI</title>
+  </head>
+  <body>
+    <!-- <script>
+      window.addEventListener("beforeunload", () => {
+        alert("Ada sesuatu yang mau reload halaman!");
+      });
+    </script> -->
+
+    <section class="chatMenu">
+      <i id="menu" class="bi bi-list menu"></i>
+      <div id="chatBox" class="chatbox"></div>
+
+      <div id="inputmenu" class="inputmenu">
+        <i class="bi bi-plus tambah"></i>
+        <input
+          id="input"
+          class="input"
+          type="text"
+          placeholder="Ketik apa saja"
+        />
+        <button
+          id="enter"
+          type="button"
+          class="bi bi-arrow-up hilang enter"
+        ></button>
+      </div>
+
+      <div id="historymenu" class="historymenu">
+        <div id="history" class="history">
+          <div class="search">
+            <i class="bi bi-search"></i>
+            <h3 class="searchtitle">Cari Obrolan...</h3>
+          </div>
+        </div>
+        <div id="close" class="close"></div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
