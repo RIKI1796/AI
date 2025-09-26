@@ -88,7 +88,7 @@ async function sendMessage(message) {
   } catch (err) {
     hideTyping();
     if (err.name === "AbortError") {
-      addBubble("⏹️ Pesan dibatalkan", "other");
+      addBubble("⛔ Pesan dibatalkan", "other");
     } else {
       console.error("Fetch error:", err);
       addBubble("⚠️ Gagal koneksi ke server Python", "other");
@@ -123,3 +123,4 @@ input.addEventListener("keydown", (e) => {
     enter.classList.add("hilang");
   }
 });
+
