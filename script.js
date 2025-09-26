@@ -1,7 +1,7 @@
 const input = document.getElementById("input");
 const enter = document.getElementById("enter");
 const inputmenu = document.getElementById("inputmenu");
-const menuToggle = document.getElementById("menu");
+// const menuToggle = document.getElementById("menu");
 const history = document.getElementById("history");
 const close = document.getElementById("close");
 const historymenu = document.getElementById("historymenu");
@@ -9,17 +9,17 @@ const chatBox = document.getElementById("chatBox");
 
 const serverUrl = "https://1c2d7caf9621.ngrok-free.app";
 
-menuToggle.onclick = () => {
-  history.style.transform = "translateX(0)";
-  historymenu.style.transform = "translateX(0)";
-  close.style.opacity = "1";
-};
+// menuToggle.onclick = () => {
+//   history.style.transform = "translateX(0)";
+//   historymenu.style.transform = "translateX(0)";
+//   close.style.opacity = "1";
+// };
 
-close.onclick = () => {
-  history.style.transform = "translateX(-500px)";
-  historymenu.style.transform = "translateX(-500px)";
-  close.style.opacity = "0";
-};
+// close.onclick = () => {
+//   history.style.transform = "translateX(-500px)";
+//   historymenu.style.transform = "translateX(-500px)";
+//   close.style.opacity = "0";
+// };
 
 function addBubble(text, sender) {
   const div = document.createElement("div");
