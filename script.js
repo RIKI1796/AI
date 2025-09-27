@@ -6,7 +6,7 @@ const close = document.getElementById("close");
 const historymenu = document.getElementById("historymenu");
 const chatBox = document.getElementById("chatBox");
 
-const serverUrl = "https://1c2d7caf9621.ngrok-free.app";
+const serverUrl = "https://cc0b12cb204f.ngrok-free.app";
 
 let isWaiting = false;
 let controller = null;
@@ -123,4 +123,3 @@ input.addEventListener("keydown", (e) => {
     enter.classList.add("hilang");
   }
 });
-
